@@ -5,6 +5,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Footer from './Footer';
 
 function BaseConverter() {
   const [number, setNumber] = useState('');
@@ -86,7 +87,7 @@ function BaseConverter() {
         </div>
         <div className="button-container">
           <Button
-            size="large"
+            size="medium"
             variant="contained"
             endIcon={<ArrowCircleRightIcon />}
             className="convert-button"
@@ -95,7 +96,7 @@ function BaseConverter() {
             Convert
           </Button>
           <Button
-            size="large"
+            size="medium"
             variant="contained"
             startIcon={<SwapVerticalCircleIcon />}
             className="swap-button"
@@ -116,6 +117,7 @@ function BaseConverter() {
             readOnly
           />
         </div>
+      <Footer/>
       </div>
     </>
   );
