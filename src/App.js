@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import "./App.css"
+import './App.css';
 import { Button } from '@mui/material';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
-import Footer from './Footer';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 function BaseConverter() {
   const [number, setNumber] = useState('');
   const [sourceBase, setSourceBase] = useState(10);
   const [targetBase, setTargetBase] = useState(2);
   const [convertedNumber, setConvertedNumber] = useState('');
+  const [theme, setTheme] = useState('day');
 
   const convertNumber = () => {
     const decimalNumber = parseInt(number, sourceBase);
@@ -24,10 +26,20 @@ function BaseConverter() {
     setTargetBase(sourceBase);
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'day' ? 'night' : 'day');
+  };
+
   return (
     <>
-      <div className="base-converter-container">
+      <div className={`base-converter-container ${theme}`}>
         <h1 className="heading">Base Converter</h1>
+        <button
+          className={`toggle-button ${theme === 'day' ? 'day' : 'night'}`}
+          onClick={toggleTheme}
+        >
+          {theme === 'day' ? <Brightness4Icon /> : <Brightness7Icon />}
+        </button>
         <div className="input-container">
           <label htmlFor="number" className="label">
             Number:
@@ -73,12 +85,22 @@ function BaseConverter() {
           </select>
         </div>
         <div className="button-container">
-         
-          <Button size='large' variant="contained" endIcon={<ArrowCircleRightIcon  />} className="convert-button" onClick={convertNumber}>
+          <Button
+            size="large"
+            variant="contained"
+            endIcon={<ArrowCircleRightIcon />}
+            className="convert-button"
+            onClick={convertNumber}
+          >
             Convert
           </Button>
-         
-          <Button  size='large' variant="contained"  startIcon={<SwapVerticalCircleIcon />} className="swap-button" onClick={swapBases}>
+          <Button
+            size="large"
+            variant="contained"
+            startIcon={<SwapVerticalCircleIcon />}
+            className="swap-button"
+            onClick={swapBases}
+          >
             Swap
           </Button>
         </div>
@@ -94,10 +116,7 @@ function BaseConverter() {
             readOnly
           />
         </div>
-
-        <Footer />
       </div>
-
     </>
   );
 }
