@@ -85,6 +85,11 @@ body {
     height: 100vh;
     
   }
+
+  .heading {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
 }
 
 
