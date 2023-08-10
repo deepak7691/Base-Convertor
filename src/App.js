@@ -87,6 +87,7 @@ function BaseConverter() {
         </div>
         <div className="button-container">
           <Button
+          style={{margin:"30px"}}
             size="medium"
             variant="contained"
             endIcon={<ArrowCircleRightIcon />}
@@ -96,6 +97,7 @@ function BaseConverter() {
             Convert
           </Button>
           <Button
+          style={{margin:"30px"}}
             size="medium"
             variant="contained"
             startIcon={<SwapVerticalCircleIcon />}
